@@ -1,0 +1,572 @@
+/Users/ashutosh
+
+192:~ ashutosh$ cd /usr/local/mysql
+192:mysql ashutosh$ mysql -u root -p
+Enter password:
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql> show databases;
+
++                               +
+
+| Database          |
+
++                               +
+
+| information_schema |
+
+| mysql             |
+
+| payroll_service    |
+
+| performance_schema |
+
+| sys               |
+
++                               +
+5 rows in set (0.00 sec)
+
+mysql> create database address_book_service;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
+
++                                  +
+
+| Database            |
+
++                                  +
+
+| address_book_service |
+
+| information_schema   |
+
+| mysql               |
+
+| payroll_service      |
+
+| performance_schema   |
+
+| sys                 |
+
++                                  +
+6 rows in set (0.00 sec)
+
+
+mysql> use address_book_service;
+
+Database changed
+mysql> select database();
+
++                                  +
+
+| database()          |
+
++                                  +
+
+| address_book_service |
+
++                                  +
+1 row in set (0.00 sec)
+
+mysql> create table address_book_service( id int unsigned not null
+auto_increment, firstname varchar(20) not null, last name varchar(20) not null,
+address varchar(250) not null, city varchar(20) not null, state varchar(20) not
+null, zip int signed not null, phonenumber varchar(10) not null, email
+varchar(50) not null, primary key(id));
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual
+that corresponds to your MySQL server version for the right syntax to use near
+'name varchar(20) not null, address varchar(250) not null, city varchar(20) not
+n'  at line 1
+
+mysql> create table address_book_service( id int unsigned not null
+auto_increment, firstname varchar(20) not null, lastname varchar(20) not null,
+address varchar(250) not null, city varchar(20) not null, state varchar(20) not
+null, zip int
+
+signed not null, phonenumber varchar(10) not null, email varchar(50) not null,
+primary key(id));
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> describe address_book_service;
+
++                    +                      +         +        +              + 
+                        +
+
+| Field      | Type        | Null | Key | Default | Extra         |
+
++                    +                      +         +        +              + 
+                        +
+
+| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
+
+| firstname   | varchar(20)  | NO   |     | NULL    |               |
+
+| lastname    | varchar(20)  | NO   |     | NULL    |               |
+
+| address     | varchar(250) | NO   |     | NULL    |               |
+
+| city       | varchar(20)  | NO   |     | NULL    |               |
+
+| state      | varchar(20)  | NO   |     | NULL    |               |
+
+| zip        | int         | NO   |     | NULL    |               |
+
+| phonenumber | varchar(10)  | NO   |     | NULL    |               |
+
+| email      | varchar(50)  | NO   |     | NULL    |               |
+
++                    +                      +         +        +              + 
+                        +
+9 rows in set (0.00 sec)
+
+Last login: Mon Oct 26 12:21:27 on ttys000
+The default interactive shell is now zsh.
+
+
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+
+For more details, please visit https://support.apple.com/kb/HT208050.
+192:~ ashutosh$ pwd
+
+/Users/ashutosh
+
+192:~ ashutosh$ cd /usr/local/mysql
+192:mysql ashutosh$ mysql -u root -p
+Enter password:
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql> show databases;
+
++                                  +
+
+| Database            |
+
++                                  +
+
+| address_book_service |
+
+| information_schema   |
+
+| mysql               |
+
+| payroll_service      |
+
+| performance_schema   |
+
+| sys                 |
+
++                                  +
+6 rows in set (0.00 sec)
+
+mysql> use address_book_service;
+
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select database();
+
++                                  +
+
+| database()          |
+
++                                  +
+
+| address_book_service |
+
++                                  +
+1 row in set (0.00 sec)
+
+mysql> describe address_book_service;
+
+
++                    +                      +         +        +              + 
+                        +
+
+| Field      | Type        | Null | Key | Default | Extra         |
+
++                    +                      +         +        +              + 
+                        +
+
+| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
+
+| firstname   | varchar(20)  | NO   |     | NULL    |               |
+
+| lastname    | varchar(20)  | NO   |     | NULL    |               |
+
+| address     | varchar(250) | NO   |     | NULL    |               |
+
+| city       | varchar(20)  | NO   |     | NULL    |               |
+
+| state      | varchar(20)  | NO   |     | NULL    |               |
+
+| zip        | int         | NO   |     | NULL    |               |
+
+| phonenumber | varchar(10)  | NO   |     | NULL    |               |
+
+| email      | varchar(50)  | NO   |     | NULL    |               |
+
++                    +                      +         +        +              + 
+                        +
+9 rows in set (0.00 sec)
+
+mysql> insert into
+address_book_service(firstname,lastname,address,city,state,zip,phonenumber,
+email)values('ashutosh','aggarwal','61
+street','amritsar','punjab',143001,'9888823512','ashutosh@gmail.com'),
+('avnish','gupta','61
+street','bathinda','punjab',151001,'9888888888','avnish@gmail.com'),
+('test','test1','123 
+street','delhi','delhi','11111','9999999999','test@gmail.com');
+Query OK, 3 rows affected (0.00 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_service;
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+
+| id | firstname | lastname | address    | city     | state  | zip    | 
+phonenumber |
+email             |
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+
+|  1 | ashutosh  | aggarwal | 61 street  | amritsar | punjab | 143001 | 
+9888823512
+
+| ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | 61 street  | bathinda | punjab | 151001 | 
+9888888888  |
+avnish@gmail.com   |
+
+|  3 | test      | test1    | 123 street | delhi    | delhi  |  11111 | 
+9999999999  |
+test@gmail.com     |
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+3 rows in set (0.00 sec)
+
+mysql> update address_book_service set city ='mumbai' where
+firstname='test';
+
+Query OK, 1 row affected (0.01 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> select * from address_book_service;
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+
+| id | firstname | lastname | address    | city     | state  | zip    | 
+phonenumber |
+email             |
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+
+|  1 | ashutosh  | aggarwal | 61 street  | amritsar | punjab | 143001 | 
+9888823512
+
+| ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | 61 street  | bathinda | punjab | 151001 | 
+9888888888  |
+avnish@gmail.com   |
+
+|  3 | test      | test1    | 123 street | mumbai   | delhi  |  11111 | 
+9999999999  |
+test@gmail.com     |
+
++      +                 +               +                   +               +  
+          +            
+
++                    +                               +
+3 rows in set (0.00 sec)
+
+mysql> delete from address_book_service where firstname='test';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from address_book_service;
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+
+| id | firstname | lastname | address   | city     | state  | zip    | 
+phonenumber |
+email             |
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+
+|  1 | ashutosh  | aggarwal | 61 street | amritsar | punjab | 143001 | 
+9888823512
+
+| ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | 61 street | bathinda | punjab | 151001 | 
+9888888888  |
+avnish@gmail.com   |
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+2 rows in set (0.00 sec)
+
+mysql> select firstname,lastname from address_book_service where
+city='amritsar';
+
++                 +               +
+
+| firstname | lastname |
+
++                 +               +
+
+| ashutosh  | aggarwal |
+
++                 +               +
+1 row in set (0.00 sec)
+
+mysql> select city,count(firstname)from address_book_service group by city;
+
+
++               +                            +
+
+| city     | count(firstname) |
+
++               +                            +
+
+| amritsar |               1 |
+
+| bathinda |               1 |
+
++               +                            +
+2 rows in set (0.00 sec)
+
+mysql> select * from address_book_service where state='pnb' order by
+firstname;
+
+Empty set (0.00 sec)
+
+mysql> select * from address_book_service where state='punjab' order by
+firstnam
+
+e;
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+
+| id | firstname | lastname | address   | city     | state  | zip    | 
+phonenumber |
+email             |
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+
+|  1 | ashutosh  | aggarwal | 61 street | amritsar | punjab | 143001 | 
+9888823512
+
+| ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | 61 street | bathinda | punjab | 151001 | 
+9888888888  |
+avnish@gmail.com   |
+
++      +                 +               +                 +               +    
+        +            
+
++                    +                               +
+2 rows in set (0.00 sec)
+
+mysql> alter table address_book_service add type varchar(20) after lastname;
+Query OK, 0 rows affected (0.03 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_service;
+
++      +                 +               +         +                 +          
+     +            +            
+
++                    +                               +
+
+| id | firstname | lastname | type | address   | city     | state  | zip    |
+phonenumber | email             |
+
++      +                 +               +         +                 +          
+     +            +            
+
++                    +                               +
+
+|  1 | ashutosh  | aggarwal | NULL | 61 street | amritsar | punjab | 143001 |
+9888823512  | ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | NULL | 61 street | bathinda | punjab | 151001 |
+9888888888  | avnish@gmail.com   |
+
++      +                 +               +         +                 +          
+     +            +            
+
++                    +                               +
+
+
+2 rows in set (0.00 sec)
+
+mysql> update address_book_service set type='profession' where
+firstname='avnish';
+
+Query OK, 1 row affected (0.01 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_service set type='self' where
+firstname='ashutosh';
+
+Query OK, 1 row affected (0.02 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_service;
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+
+| id | firstname | lastname | type      | address   | city     | state  | zip   
+ |
+phonenumber | email             |
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+
+|  1 | ashutosh  | aggarwal | self      | 61 street | amritsar | punjab | 
+143001 |
+9888823512  | ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | profession | 61 street | bathinda | punjab | 
+151001 |
+9888888888  | avnish@gmail.com   |
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+2 rows in set (0.00 sec)
+
+mysql> select type,count(type) from address_book_service group by type;
+
++                   +                    +
+
+| type      | count(type) |
+
++                   +                    +
+
+| self      |          1 |
+
+| profession |          1 |
+
++                   +                    +
+2 rows in set (0.00 sec)
+
+mysql> insert into
+address_book_service(firstname,lastname,type,address,city,state,zip,phonenu
+mber,email)values('abc','def','friends','45
+street','ludhiana','punjab',11111,'988888888','abc@gmail.com'),
+('test','tes1','family','46
+street','patiala','punjab',22222,'9000000000','test@gmail.com');
+
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_service;
+
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+
+| id | firstname | lastname | type      | address   | city     | state  | zip   
+ |
+phonenumber | email             |
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+
+|  1 | ashutosh  | aggarwal | self      | 61 street | amritsar | punjab | 
+143001 |
+9888823512  | ashutosh@gmail.com |
+
+|  2 | avnish    | gupta    | profession | 61 street | bathinda | punjab | 
+151001 |
+9888888888  | avnish@gmail.com   |
+
+|  4 | abc      | def      | friends    | 45 street | ludhiana | punjab |  
+11111 |
+988888888   | abc@gmail.com      |
+
+|  5 | test      | tes1     | family     | 46 street | patiala  | punjab |  
+22222 |
+9000000000  | test@gmail.com     |
+
++      +                 +               +                   +                 
++               +            
+
++            +                    +                               +
+4 rows in set (0.00 sec)
+
